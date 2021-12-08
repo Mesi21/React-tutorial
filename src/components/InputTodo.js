@@ -1,42 +1,42 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-class InputTodo extends Component {
-  state = {
-    title: ""
-  };
+const InputTodo = ({ addTodoProps }) => {
+  const [inputText, setInputText] = useState({ title: '' });
 
-  onChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.title.trim()) {
-      this.props.addTodoProps(this.state.title);
-      this.setState({
-        title: ""
+    if (inputText.title.trim()) {
+      addTodoProps(inputText.title);
+      setInputText({
+        title: '',
       });
-    } else {
-      alert("Please add a valid item!")
     }
   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} className="form-container">
-        <input 
-          type="text"
-          placeholder="Add Todo..."
-          value={this.state.title}
-          name="title"
-          onChange={this.onChange}
-        />
-        <button className="input-submit">Submit</button>
-      </form>
-    )
-  }
+  const onChange = (e) => {
+    setInputText({
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        className="input-text"
+        type="text"
+        name="title"
+        placeholder="Add Todo..."
+        value={inputText.title}
+        onChange={onChange}
+      />
+      <button type="button" aria-label="submit" className="input-submit"><FaPlusCircle /></button>
+    </form>
+  );
 };
 
-export default InputTodo
+InputTodo.propTypes = { addTodoProps: PropTypes.instanceOf(Function).isRequired };
+
+export default InputTodo;

@@ -63,3 +63,121 @@ body {
   outline: none;
   border: none;
 }
+
+.input-submit svg {
+  color: #008b8b;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.delete-icon,
+.active-link {
+  color: #ff4500;
+}
+
+.delete-icon {
+  font-size: 16px;
+}
+
+.navBar {
+  position: relative;
+}
+
+.input-submit,
+.navBar button {
+  background: transparent;
+  cursor: pointer;
+}
+
+.navBar button {
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  z-index: 10;
+  border: none;
+}
+
+.menuNav {
+  overflow-y: scroll;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  background: darkcyan;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  overflow: hidden;
+  max-width: 290px;
+  z-index: 9;
+}
+
+.inner,
+.form-container,
+.menuNav.showMenu {
+  width: 100%;
+}
+
+.menuNav li:first-child {
+  margin-top: 7rem;
+}
+
+.menu-close {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+.menu-open {
+  color: #7b7b7b;
+  width: 40px;
+  height: 40px;
+}
+
+.container,
+.form-container,
+.about__content {
+  display: flex;
+}
+
+.about__content {
+  padding: 8rem 40px;
+}
+
+.about__list {
+  list-style: none;
+  flex: 2;
+  margin-right: 15px;
+}
+
+header,
+.about__list a {
+  padding: 20px 0;
+}
+
+.input-submit,
+.about__list a {
+  text-transform: capitalize;
+}
+
+.about__list a {
+  color: #9f9f9f;
+}
+
+.input-text::placeholder,
+.about__list a:hover {
+  color: #000;
+}
+
+.main__content {
+  flex: 7;
+}
+
+.main__content h1 {
+  margin-bottom: 15px;
+  line-height: 30px;
+  font-size: 30px;
+}
+
+.main__content p {
+  line-height: 25px;
+}
